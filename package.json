@@ -1,0 +1,25 @@
+{
+  "name": "use-async-loading",
+  "version": "1.0.5",
+  "description": "react hook to change loading state according to async function or promise | 用来管理异步函数或 promise 的 loading 状态的 react hook",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postor/use-async-loading.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/postor/use-async-loading/issues"
+  },
+  "homepage": "https://github.com/postor/use-async-loading#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "typescript": "^4.4.4"
+  }
+}
