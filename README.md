@@ -8,16 +8,18 @@ react hook to change loading state according to async function or promise | 用�
 ```
 import useAsyncLoading from 'use-async-loading'
 
-let [loading, value, error, start] = useAsyncLoading(initialAsyncFunction)
+let [loading, value, error, start] = useAsyncLoading(initialValue,initialAsyncFunction)
 ```
 
 ## use case | 场景
+
+check | 查看 [./examples/basic/pages](./examples/basic/pages)
 
 ### load initial values | 加载初始数据
 
 ```
 const Index = () => {
-  let [loading, value, error] = useAsyncLoading(async () => {
+  let [loading, value, error] = useAsyncLoading('initial',async () => {
       await wait(2000)
       if (Math.random() < 0.5) throw 'something went wrong!|出错了！'
       return 'it works! | 运行正常！'
@@ -33,7 +35,7 @@ const Index = () => {
 
 ```
 const Submit = () => {
-  let [loading, value, error, start] = useAsyncLoading()
+  let [loading, value, error, start] = useAsyncLoading('initial')
   return <div>
     <h1>submit form | 提交表单</h1>
     <button disabled={loading} onClick={() => start(async () => {
@@ -50,7 +52,7 @@ const Submit = () => {
 
 ```
 const Submit = () => {
-  let [loading, value, error, start] = useAsyncLoading()
+  let [loading, value, error, start] = useAsyncLoading('initial')
   return <div>
     <h1>validate field | 验证字段格式</h1>
     <input

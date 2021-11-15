@@ -1,6 +1,6 @@
 {
   "name": "use-async-loading",
-  "version": "1.0.6",
+  "version": "2.0.1",
   "description": "react hook to change loading state according to async function or promise | 用来管理异步函数或 promise 的 loading 状态的 react hook",
   "main": "dist/index.js",
   "scripts": {

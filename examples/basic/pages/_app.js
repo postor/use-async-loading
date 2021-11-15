@@ -3,6 +3,7 @@ const menus = [
   ['inital data', '/'],
   ['submit form', '/submit'],
   ['validate field', '/validate'],
+  ['reducer', '/reducer'],
 ]
 
 function MyApp({ Component, pageProps }) {
