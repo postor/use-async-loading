@@ -11,8 +11,10 @@ export function useAsyncLoading<T>(
     (fn: Action<T>) => void] {
   let [loading, setLoading] = useState([0, initialValue, undefined] as [number, T | undefined, any])
   let curValue = useRef(initialValue as T | undefined)
+  let unmounted = false
   useEffect(() => {
     fn && dispatch(fn)
+    return () => { unmounted = true }
   }, [])
   // @ts-ignore
   return [...loading, dispatch]
@@ -21,11 +23,13 @@ export function useAsyncLoading<T>(
     setLoading(([l, v, e]) => [l + 1, v, e])
     try {
       let rtn = await drain(fn)
-      setLoading(([l,v]) => {
-        curValue.current = typeof rtn=='function'?rtn(v):rtn
+      if (unmounted) return
+      setLoading(([l, v]) => {
+        curValue.current = typeof rtn == 'function' ? rtn(v) : rtn
         return [l - 1, curValue.current, undefined]
       })
     } catch (e) {
+      if (unmounted) return
       setLoading(([l]) => [l - 1, undefined, e])
       curValue.current = undefined
     }

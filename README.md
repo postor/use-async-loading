@@ -3,6 +3,9 @@ react hook to change loading state according to async function or promise | ç”¨æ
 
 ![screenshot](./screenshot.gif)
 
+try it out: 
+https://codesandbox.io/s/use-async-loading-ujzzb?file=/src/App.js
+
 ## usage
 
 ```
